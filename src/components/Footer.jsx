@@ -38,7 +38,12 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-gray-900 text-white">
+    <footer 
+  className="relative text-white bg-cover bg-no-repeat"
+  style={{ 
+    backgroundImage: "url('https://res.cloudinary.com/dzwxkhkvi/image/upload/v1755858249/Nate_Crawford_Heirloom_-_Rigid___24x36_zrxexp.jpg')" 
+  }}
+>
       <div className="container mx-auto px-4 py-16">
         <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-8">
           {/* Company Info */}
@@ -163,7 +168,7 @@ const Footer = () => {
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.4, duration: 0.6 }}
           viewport={{ once: true }}
-          className="border-t border-gray-800 mt-12 pt-8"
+          className="border-t border-gray-1000 mt-12 pt-8"
         >
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-gray-400 text-sm">
