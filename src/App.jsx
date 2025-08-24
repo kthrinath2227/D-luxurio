@@ -11,6 +11,8 @@ import ImageSlider from '@/components/ImageSlider';
 import DesignSeries from '@/components/DesignSeries';
 import Clients from '@/components/Clients';
 import LimePlasterDesigns from '@/components/LimePlasterDesigns';
+import  LogoReveal from '@/components/LogoReveal';
+import AboutSection from '@/components/AboutUs';
 
 function App() {
   return (
@@ -24,9 +26,11 @@ function App() {
       <main className="bg-white/80 backdrop-blur-sm">
         <Hero />
         <ImageSlider />
-        <DesignSeries />
-        <LimePlasterDesigns />
+        <LogoReveal />
+        {/* <AboutSection /> */}
         <Services />
+        <LimePlasterDesigns />
+        <DesignSeries />
         <Projects />
         <Clients />
         <Contact />

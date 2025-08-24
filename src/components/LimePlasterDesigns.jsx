@@ -61,9 +61,17 @@ const LimePlasterDesigns = () => {
     x.set(0);
     y.set(0);
   };
+  const backgroundImages = [
+  "https://res.cloudinary.com/dzwxkhkvi/image/upload/v1755934293/download_9_jyk2hf.jpg",
+  "https://res.cloudinary.com/dzwxkhkvi/image/upload/v1755934292/download_10_z3t2td.jpg",
+  "https://res.cloudinary.com/dzwxkhkvi/image/upload/v1755934390/Decorative_stucco_texture_a_Texture_Graphic_by_ArtyomMirniy_xik0ca.jpg",
+  "https://res.cloudinary.com/dzwxkhkvi/image/upload/v1755934441/Concrete_Effect_Paint_-_M%C3%A0u_s%C6%A1n_hi%E1%BB%87u_%E1%BB%A9ng_b%C3%AA_t%C3%B4ng_Conpa_Vietnam_2022-0989144448_jgs27l.jpg",
+  "https://res.cloudinary.com/dzwxkhkvi/image/upload/v1755932708/download_7_c1vrs7.jpg"
+];
+
 
   return (
-    <section id="lime-designs" className="section-padding bg-transparent overflow-hidden">
+    <section id="lime-designs" className="section-padding bg-gray-100 overflow-hidden">
       <div className="container mx-auto px-4">
         {/* Heading */}
         <motion.div
@@ -135,35 +143,43 @@ const LimePlasterDesigns = () => {
             viewport={{ once: true }}
             className="flex flex-col space-y-4"
           >
-            {designs.map((design) => (
-              <motion.div
-                key={design.title}
-                variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.98 }}
-                onMouseEnter={() => setSelectedDesign(design)}
-                className={`p-6 rounded-lg cursor-pointer transition-all duration-300 border-l-4 ${
-                  selectedDesign.title === design.title
-                    ? 'bg-blue-50/80 border-blue-600 shadow-xl'
-                    : 'bg-gray-50/80 border-transparent hover:bg-gray-100/80'
-                }`}
-              >
-                <div className="flex items-center space-x-3 mb-2">
-                  {design.category === 'Lime Plaster' ? (
-                    <Paintbrush className="w-5 h-5 text-blue-600" />
-                  ) : (
-                    <Palette className="w-5 h-5 text-blue-600" />
-                  )}
-                  <span className="text-sm font-semibold text-blue-700 uppercase tracking-wider">
-                    {design.category}
-                  </span>
-                </div>
-                <h3 className="text-2xl font-playfair font-semibold text-gray-900 mb-2">
-                  {design.title}
-                </h3>
-                <p className="text-gray-600">{design.description}</p>
-              </motion.div>
-            ))}
+           {designs.map((design, index) => (
+  <motion.div
+  key={design.title}
+  variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
+  whileHover={{ scale: 1.03 }}
+  whileTap={{ scale: 0.98 }}
+  onMouseEnter={() => setSelectedDesign(design)}
+  className={`p-6 rounded-2xl cursor-pointer transition-all duration-300 border-l-4 backdrop-blur-md
+    ${
+      selectedDesign.title === design.title
+        ? 'bg-blue-50/80 border-blue-600 shadow-xl'
+        : 'bg-gray-50/80 border-transparent hover:bg-gray-100/80 shadow-md'
+    }`}
+  style={{
+    backgroundImage: `url(${backgroundImages[index % backgroundImages.length]})`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+  }}
+>
+  <div className="flex items-center space-x-3 mb-3">
+    {design.category === 'Lime Plaster' ? (
+      <Paintbrush className="w-6 h-6 text-blue-600" />
+    ) : (
+      <Palette className="w-6 h-6 text-blue-600" />
+    )}
+    <span className="text-sm font-semibold text-blue-700 uppercase tracking-wider">
+      {design.category}
+    </span>
+  </div>
+  <h3 className="text-xl font-playfair font-semibold text-gray-900 mb-2">
+    {design.title}
+  </h3>
+  <p className="text-gray-900 text-sm leading-relaxed">
+    {design.description}
+  </p>
+</motion.div>
+))}
           </motion.div>
         </div>
       </div>

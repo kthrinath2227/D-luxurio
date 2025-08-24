@@ -20,13 +20,13 @@ const ImageSlider = () => {
     if (!emblaApi) return;
     const timer = setInterval(() => {
       emblaApi.scrollNext();
-    }, 3000);
+    }, 2000);
     return () => clearInterval(timer);
   }, [emblaApi]);
 
 
   return (
-    <section className="py-16 sm:py-24 bg-white overflow-hidden">
+    <section className="py-16 sm:py-24 bg-gray-100 overflow-hidden">
       <div className="embla" ref={emblaRef}>
         <div className="embla__container flex">
           {[...slides, ...slides].map((slide, index) => (

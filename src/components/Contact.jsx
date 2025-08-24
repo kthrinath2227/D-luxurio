@@ -43,8 +43,9 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="section-padding bg-white">
+    <section id="contact" className="section-padding bg-gray-100">
       <div className="container mx-auto px-4">
+        {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -72,39 +73,49 @@ const Contact = () => {
               transition={{ delay: index * 0.15, duration: 0.6 }}
               viewport={{ once: true }}
               whileHover={{ scale: 1.05 }}
-              className="relative group bg-white/70 backdrop-blur-lg p-6 rounded-2xl shadow-md border border-gray-200 hover:border-gray-300 transition-all duration-500 flex flex-col items-center text-center"
+              className="relative group p-6 rounded-2xl shadow-md border border-gray-300 hover:border-gray-500 transition-all duration-500 flex flex-col items-center text-center bg-cover bg-center"
+              style={{
+                backgroundImage:
+                  "url('https://res.cloudinary.com/dzwxkhkvi/image/upload/v1755932707/download_8_yx8jwa.jpg')",
+              }}
             >
-              {/* Icon + Title in Row (centered) */}
-              <div className="flex items-center justify-center gap-3 mb-4">
-                <div
-                  className={`w-12 h-12 flex items-center justify-center rounded-xl bg-gradient-to-br ${info.color} text-white shadow-lg`}
-                >
-                  <info.icon className="w-6 h-6" />
+              {/* Overlay for readability */}
+              <div className="absolute inset-0 rounded-2xl"></div>
+
+              {/* Content */}
+              <div className="relative z-10 flex flex-col items-center text-center">
+                {/* Icon + Title */}
+                <div className="flex items-center justify-center gap-3 mb-4">
+                  <div
+                    className={`w-12 h-12 flex items-center justify-center rounded-xl bg-gradient-to-br ${info.color} text-white shadow-lg`}
+                  >
+                    <info.icon className="w-6 h-6" />
+                  </div>
+                  <h4 className="text-lg font-semibold text-gray-900">
+                    {info.title}
+                  </h4>
                 </div>
-                <h4 className="text-lg font-semibold text-gray-900">
-                  {info.title}
-                </h4>
+
+                {/* Details */}
+                <div className="space-y-1">
+                  {info.details.map((detail, detailIndex) => (
+                    <p key={detailIndex} className="text-gray-700 text-sm">
+                      {info.action && detailIndex === 0 ? (
+                        <a
+                          href={info.action}
+                          className="hover:text-yellow-600 transition-colors"
+                        >
+                          {detail}
+                        </a>
+                      ) : (
+                        detail
+                      )}
+                    </p>
+                  ))}
+                </div>
               </div>
 
-              {/* Details (centered) */}
-              <div className="space-y-1">
-                {info.details.map((detail, detailIndex) => (
-                  <p key={detailIndex} className="text-gray-600 text-sm">
-                    {info.action && detailIndex === 0 ? (
-                      <a
-                        href={info.action}
-                        className="hover:text-yellow-600 transition-colors"
-                      >
-                        {detail}
-                      </a>
-                    ) : (
-                      detail
-                    )}
-                  </p>
-                ))}
-              </div>
-
-              {/* Glow effect (individual color per card) */}
+              {/* Glow effect */}
               <div
                 className={`absolute inset-0 rounded-2xl bg-gradient-to-r ${info.hover} opacity-0 group-hover:opacity-20 blur-2xl transition duration-500`}
               ></div>

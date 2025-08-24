@@ -1,20 +1,20 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Building, Dribbble, Sofa } from 'lucide-react';
+import { Paintbrush, Brush, Sofa } from 'lucide-react';
 import { toast } from '@/components/ui/use-toast';
 
 const Services = () => {
   const services = [
     {
-      icon: Building,
-      title: 'Architecture',
-      description: 'Innovative and sustainable building designs.',
+      icon: Paintbrush,
+      title: 'Lime plasters',
+      description: 'Durable, breathable, and elegant walls.',
       animation: { x: -150, y: 0 }, // from left
     },
     {
-      icon: Dribbble,
-      title: 'Interiors',
-      description: 'Elegant spaces that reflect your personal style.',
+      icon: Brush,
+      title: 'Micro toppings',
+      description: 'Elegant, durable surfaces for every space.',
       animation: { x: 0, y: 150 }, // from bottom
     },
     {
@@ -73,7 +73,11 @@ const Services = () => {
               transition={{ delay: index * 0.2, duration: 0.8, ease: "easeOut" }}
               viewport={{ once: true, amount: 0.3 }}
               onClick={() => handleServiceClick(service.title)}
-              className="bg-white group rounded-2xl shadow-md hover:shadow-2xl 
+               style={{
+    backgroundImage:
+      "url('https://res.cloudinary.com/dzwxkhkvi/image/upload/v1755932707/download_8_yx8jwa.jpg')",
+  }}
+              className="bg-gray-500 group rounded-2xl shadow-md hover:shadow-2xl 
                          transition-all duration-300 p-8 text-center cursor-pointer 
                          transform hover:-translate-y-2"
             >

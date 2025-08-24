@@ -1,35 +1,72 @@
-import React, { useRef, useEffect, useState } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 
 const Clients = () => {
   const logos = [
-    { name: "Prestige Group", Image: "https://res.cloudinary.com/dzwxkhkvi/image/upload/v1755784685/logo_o1buck.png", alt: "Prestige Group logo" },
-    { name: "Sobha Ltd", Image: "https://res.cloudinary.com/dzwxkhkvi/image/upload/v1755784685/logo_o1buck.png", alt: "Sobha Ltd logo" },
-    { name: "DLF", Image: "https://res.cloudinary.com/dzwxkhkvi/image/upload/v1755784685/logo_o1buck.png", alt: "DLF logo" },
-    { name: "My Home Group", Image: "https://res.cloudinary.com/dzwxkhkvi/image/upload/v1755785171/logo_1_xdyuwg.jpg", alt: "My Home Group logo" },
-    { name: "Aparna Constructions", Image: "https://res.cloudinary.com/dzwxkhkvi/image/upload/v1755785280/cropped-ysrealty-e1546241768536-2_lwu4t7.png", alt: "Aparna Constructions logo" },
-    { name: "Taj Hotels", Image: "https://res.cloudinary.com/dzwxkhkvi/image/upload/v1755785057/aparna-logo_spgy20.jpg", alt: "Taj Hotels logo" },
-    { name: "Marriott International", Image: "https://res.cloudinary.com/dzwxkhkvi/image/upload/v1755785065/logo_o2yeoc.jpg", alt: "Marriott International logo" },
+    {
+      name: "Alekhya Homes",
+      Image:
+        "https://res.cloudinary.com/dzwxkhkvi/image/upload/v1756033540/main-logo_i2cllc.jpg",
+      alt: "Alekhya Homes logo",
+    },
+    {
+      name: "Amara Raja",
+      Image:
+        "https://res.cloudinary.com/dzwxkhkvi/image/upload/v1756033461/HI_Logo2025-1-1_zi3pjh.png",
+      alt: "Amara Raja logo",
+    },
+    {
+      name: "Aparna Constructions",
+      Image:
+        "https://res.cloudinary.com/dzwxkhkvi/image/upload/v1755785280/cropped-ysrealty-e1546241768536-2_lwu4t7.png",
+      alt: "Aparna Constructions logo",
+    },
+    {
+      name: "Arttdinox",
+      Image:
+        "https://res.cloudinary.com/dzwxkhkvi/image/upload/v1755785057/aparna-logo_spgy20.jpg",
+      alt: "Arttdinox logo",
+    },
+    {
+      name: "Assetz",
+      Image:
+        "https://res.cloudinary.com/dzwxkhkvi/image/upload/v1755785065/logo_o2yeoc.jpg",
+      alt: "Assetz logo",
+    },
+    {
+      name: "Buffalo Wild Wings",
+      Image:
+        "https://res.cloudinary.com/dzwxkhkvi/image/upload/v1755784685/logo_o1buck.png",
+      alt: "Buffalo Wild Wings logo",
+    },
+    {
+      name: "DSR Builders",
+      Image:
+        "https://res.cloudinary.com/dzwxkhkvi/image/upload/v1755784685/logo_o1buck.png",
+      alt: "DSR Builders logo",
+    },
+    {
+      name: "EIPL",
+      Image:
+        "https://res.cloudinary.com/dzwxkhkvi/image/upload/v1755785171/logo_1_xdyuwg.jpg",
+      alt: "EIPL logo",
+    },
+    {
+      name: "Geetanjali",
+      Image:
+        "https://res.cloudinary.com/dzwxkhkvi/image/upload/v1755784685/logo_o1buck.png",
+      alt: "Geetanjali logo",
+    },
+    {
+      name: "HCL",
+      Image:
+        "https://res.cloudinary.com/dzwxkhkvi/image/upload/v1756033438/logo-348_dms3oa.png",
+      alt: "HCL logo",
+    },
   ];
 
-  const duplicatedLogos = [...logos, ...logos];
-  const containerRef = useRef(null);
-  const [centerX, setCenterX] = useState(0);
-
-  useEffect(() => {
-    const updateCenter = () => {
-      if (containerRef.current) {
-        const rect = containerRef.current.getBoundingClientRect();
-        setCenterX(rect.width / 2);
-      }
-    };
-    updateCenter();
-    window.addEventListener("resize", updateCenter);
-    return () => window.removeEventListener("resize", updateCenter);
-  }, []);
-
   return (
-    <section id="clients" className="section-padding bg-transparent">
+    <section id="clients" className="section-padding bg-gray-50">
       <div className="container mx-auto px-4">
         {/* Title */}
         <motion.div
@@ -44,67 +81,28 @@ const Clients = () => {
           </h2>
           <div className="w-20 h-1 bg-blue-600 mx-auto mb-6"></div>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            We are proud to have collaborated with some of the most prestigious names in the industry.
+            We are proud to have collaborated with some of the most prestigious
+            names in the industry.
           </p>
         </motion.div>
 
-        {/* Logo Carousel */}
-        <div ref={containerRef} className="relative w-full overflow-hidden">
-          {/* Fading mask edges */}
-          <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
-          <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
-
-          <motion.div
-            className="flex"
-            animate={{
-              x: ["0%", "-100%"],
-              transition: {
-                ease: "linear",
-                duration: 35,
-                repeat: Infinity,
-              },
-            }}
-          >
-            {duplicatedLogos.map((logo, index) => (
-              <LogoItem key={index} logo={logo} centerX={centerX} />
-            ))}
-          </motion.div>
+        {/* Grid with borders */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 border border-gray-200">
+          {logos.map((logo, index) => (
+            <div
+              key={index}
+              className="flex items-center justify-center border border-gray-200 bg-white h-32"
+            >
+              <img
+                src={logo.Image}
+                alt={logo.alt}
+                className="max-h-16 object-contain"
+              />
+            </div>
+          ))}
         </div>
       </div>
     </section>
-  );
-};
-
-const LogoItem = ({ logo, centerX }) => {
-  const ref = useRef(null);
-  const [isCenter, setIsCenter] = useState(false);
-
-  useEffect(() => {
-    const checkPosition = () => {
-      if (ref.current && centerX > 0) {
-        const rect = ref.current.getBoundingClientRect();
-        const logoCenter = rect.left + rect.width / 2;
-        const distance = Math.abs(centerX - logoCenter);
-
-        // if logo is near the middle → highlight
-        setIsCenter(distance < 300); // tweak this threshold for 3 logos
-      }
-    };
-
-    const interval = setInterval(checkPosition, 200); // check continuously
-    return () => clearInterval(interval);
-  }, [centerX]);
-
-  return (
-    <div ref={ref} className="flex-shrink-0 mx-10 w-40 flex items-center justify-center">
-      <img
-        src={logo.Image}
-        alt={logo.alt}
-        className={`h-16 w-auto object-contain transition-all duration-500 ${
-          isCenter ? "opacity-100 grayscale-0" : "opacity-40 grayscale"
-        }`}
-      />
-    </div>
   );
 };
 

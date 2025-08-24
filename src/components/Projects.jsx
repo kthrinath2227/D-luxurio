@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ExternalLink, Calendar, MapPin } from 'lucide-react';
+import { Calendar, MapPin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { toast } from '@/components/ui/use-toast';
 
@@ -21,8 +21,7 @@ const Projects = () => {
       category: 'residential',
       location: 'Jubilee Hills, Hyderabad',
       year: '2024',
-      image: 'https://res.cloudinary.com/dzwxkhkvi/image/upload/v1755784020/download_gibnko.jpg',
-      description: 'Complete interior transformation of a 5000 sq ft villa with contemporary luxury design'
+      image: 'https://res.cloudinary.com/dzwxkhkvi/image/upload/v1755784020/download_gibnko.jpg'
     },
     {
       id: 2,
@@ -30,8 +29,7 @@ const Projects = () => {
       category: 'commercial',
       location: 'HITEC City, Hyderabad',
       year: '2024',
-      image: 'https://res.cloudinary.com/dzwxkhkvi/image/upload/v1755784098/Academy_2_0_axzc3k.jpg',
-      description: 'Modern office space design for a leading tech company with focus on productivity'
+      image: 'https://res.cloudinary.com/dzwxkhkvi/image/upload/v1755784098/Academy_2_0_axzc3k.jpg'
     },
     {
       id: 3,
@@ -39,8 +37,7 @@ const Projects = () => {
       category: 'hospitality',
       location: 'Banjara Hills, Hyderabad',
       year: '2023',
-      image: 'https://res.cloudinary.com/dzwxkhkvi/image/upload/v1755784160/download_2_q15ack.jpg',
-      description: 'Sophisticated hotel interior design blending comfort with contemporary aesthetics'
+      image: 'https://res.cloudinary.com/dzwxkhkvi/image/upload/v1755784160/download_2_q15ack.jpg'
     },
     {
       id: 4,
@@ -48,8 +45,7 @@ const Projects = () => {
       category: 'residential',
       location: 'Gachibowli, Hyderabad',
       year: '2023',
-      image: 'https://res.cloudinary.com/dzwxkhkvi/image/upload/v1755784246/40_Minimalist_Apartment_Ideas_for_A_Stress-Free____tzg58d.jpg',
-      description: 'Minimalist apartment design maximizing space and natural light'
+      image: 'https://res.cloudinary.com/dzwxkhkvi/image/upload/v1755784246/40_Minimalist_Apartment_Ideas_for_A_Stress-Free____tzg58d.jpg'
     },
     {
       id: 5,
@@ -57,8 +53,7 @@ const Projects = () => {
       category: 'commercial',
       location: 'Kondapur, Hyderabad',
       year: '2023',
-      image: 'https://res.cloudinary.com/dzwxkhkvi/image/upload/v1755784298/download_3_ffzw3z.jpg',
-      description: 'Warm and inviting restaurant space with focus on customer experience'
+      image: 'https://res.cloudinary.com/dzwxkhkvi/image/upload/v1755784298/download_3_ffzw3z.jpg'
     },
     {
       id: 6,
@@ -66,8 +61,7 @@ const Projects = () => {
       category: 'residential',
       location: 'Film Nagar, Hyderabad',
       year: '2024',
-      image: 'https://res.cloudinary.com/dzwxkhkvi/image/upload/v1755784361/Penthouse_Panorama__Elegant_Terrace_Roof_Styles_xjfbar.jpg',
-      description: 'Exclusive penthouse design with panoramic city views and premium finishes'
+      image: 'https://res.cloudinary.com/dzwxkhkvi/image/upload/v1755784361/Penthouse_Panorama__Elegant_Terrace_Roof_Styles_xjfbar.jpg'
     }
   ];
 
@@ -84,7 +78,10 @@ const Projects = () => {
   };
 
   return (
-    <section id="projects" className="section-padding bg-white">
+    <section id="projects" className="section-padding bg-cover bg-no-repeat" style={{
+      backgroundImage:
+        "url('https://res.cloudinary.com/dzwxkhkvi/image/upload/v1755932707/download_8_yx8jwa.jpg')",
+    }}>
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -136,31 +133,21 @@ const Projects = () => {
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.5 }}
                 onClick={() => handleProjectClick(project.title)}
-                className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden cursor-pointer hover-lift"
+                className="relative group rounded-2xl overflow-hidden cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-300"
               >
-                <div className="relative overflow-hidden">
-                  <img  
-                    className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
-                    alt={`${project.title} - ${project.description}`}
-                   src={project.image} />
-                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <ExternalLink className="w-8 h-8 text-white" />
-                  </div>
-                  <div className="absolute top-4 right-4 bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-medium capitalize">
-                    {project.category}
-                  </div>
-                </div>
-                
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold mb-3 text-gray-900 group-hover:text-blue-700 transition-colors duration-300">
+                {/* Full Image */}
+                <img  
+                  className="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-500"
+                  alt={project.title}
+                  src={project.image} 
+                />
+
+                {/* Overlay with Info */}
+                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition-all duration-300 flex flex-col justify-end p-6">
+                  <h3 className="text-2xl font-semibold text-white mb-2">
                     {project.title}
                   </h3>
-                  
-                  <p className="text-gray-600 mb-4 text-sm leading-relaxed">
-                    {project.description}
-                  </p>
-                  
-                  <div className="flex items-center justify-between text-sm text-gray-500">
+                  <div className="flex items-center justify-between text-sm text-gray-200">
                     <div className="flex items-center space-x-1">
                       <MapPin className="w-4 h-4" />
                       <span>{project.location}</span>
@@ -170,6 +157,9 @@ const Projects = () => {
                       <span>{project.year}</span>
                     </div>
                   </div>
+                  <span className="absolute top-4 right-4 bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-medium capitalize">
+                    {project.category}
+                  </span>
                 </div>
               </motion.div>
             ))}
