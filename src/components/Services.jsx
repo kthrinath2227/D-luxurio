@@ -19,8 +19,8 @@ const Services = () => {
     },
     {
       icon: Sofa,
-      title: 'Furnitures',
-      description: 'Custom, high-quality furniture pieces.',
+      title: 'Liquid Metal',
+      description: 'Custom, high-quality metal finishes.',
       animation: { x: 150, y: 0 }, // from right
     },
   ];
