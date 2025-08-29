@@ -30,7 +30,7 @@ function App() {
         {/* <AboutSection /> */}
         <Services />
         <LimePlasterDesigns />
-        <DesignSeries />
+        {/* <DesignSeries /> */}
         <Projects />
         <Clients />
         <Contact />
