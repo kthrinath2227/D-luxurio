@@ -26,7 +26,7 @@ function App() {
       <main className="bg-white/80 backdrop-blur-sm">
         <Hero />
         <ImageSlider />
-        <LogoReveal />
+        {/* <LogoReveal /> */}
         {/* <AboutSection /> */}
         <Services />
         <LimePlasterDesigns />

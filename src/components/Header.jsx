@@ -61,7 +61,7 @@ const Header = () => {
       transition={{ duration: 0.6 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-white/95 backdrop-blur-md shadow-lg'
+          ? 'bg-white/70 backdrop-blur-md shadow-lg'
           : 'bg-transparent'
       }`}
     >
@@ -69,26 +69,17 @@ const Header = () => {
         <div className="flex items-center justify-between h-20">
           
           {/* Logo */}
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            className="flex items-center space-x-3 cursor-pointer"
-            onClick={() => scrollToSection('#home')}
-          >
-            <div
-              className="w-32 h-32"
-              style={{
-                background: "linear-gradient(to right, #52E5E7, #7CFC00)",  
-                WebkitMaskImage: "url('https://ik.imagekit.io/ThedevsTechnologies/Green_and_Gold_Logo_for_D_LUXURIO-removebg-preview.png?updatedAt=1754727136729')",
-                WebkitMaskRepeat: "no-repeat",
-                WebkitMaskSize: "contain",
-                WebkitMaskPosition: "center",
-                maskImage: "url('https://ik.imagekit.io/ThedevsTechnologies/Green_and_Gold_Logo_for_D_LUXURIO-removebg-preview.png?updatedAt=1754727136729')",
-                maskRepeat: "no-repeat",
-                maskSize: "contain",
-                maskPosition: "center"
-              }}
-            />
-          </motion.div>
+       <motion.div
+  whileHover={{ scale: 1.05 }}
+  className="flex items-center space-x-3 cursor-pointer"
+  onClick={() => scrollToSection('#home')}
+>
+  <img
+    src="https://res.cloudinary.com/dzwxkhkvi/image/upload/v1756125226/D-luxurio_logo-removebg-preview_jsrkmz.png"
+    alt="Logo"
+    className="w-20 h-22"
+  />
+</motion.div>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
