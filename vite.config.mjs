@@ -191,7 +191,7 @@ logger.error = (msg, options) => {
 
 export default defineConfig({
 	customLogger: logger,
-	 base: '/D-luxurio/',
+	 base: '/',
 	plugins: [
 		...(isDev ? [inlineEditPlugin(), editModeDevPlugin()] : []),
 		react(),
